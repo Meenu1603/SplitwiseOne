@@ -9,9 +9,13 @@ class Expense < ApplicationRecord
   validates :amount, numericality: {greater_than: 0,mesage: "must be greater than zero"}
   validate :no_future
   private
+  
+
   def no_future
-   if date>Date.today
-     errors.add(:date, "cannot be in future")
-   end
+    if self.date.present? && date>Date.today
+      errors.add(:date, "cannot be in future")
+    end
   end
+
+
 end

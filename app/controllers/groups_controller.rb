@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+
 
 class GroupsController < ApplicationController
   before_action :authenticate_user!
@@ -36,7 +36,7 @@ class GroupsController < ApplicationController
   end
 
 
-def part_of
+  def part_of
     @groups = current_user.group_memberships
   end
   private
